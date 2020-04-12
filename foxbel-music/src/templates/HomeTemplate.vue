@@ -3,6 +3,9 @@
     <Sidebar />
     <div class="container">
       <Navbar />
+      <SongsSection
+        :songs="songs"
+      />
     </div>
   </div>
 </template>
@@ -10,12 +13,17 @@
 <script>
 import Navbar from '../organisms/Navbar.vue';
 import Sidebar from '../organisms/Sidebar.vue';
+import SongsSection from '../organisms/SongsSection.vue';
 
 export default {
-  name: 'Home',
+  name: 'HomeTemplate',
+  props: {
+    songs: Array,
+  },
   components: {
     Sidebar,
     Navbar,
+    SongsSection,
   },
 };
 </script>
