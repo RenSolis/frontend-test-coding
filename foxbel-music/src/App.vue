@@ -1,18 +1,12 @@
 <template>
   <div id="app">
-    <Sidebar />
     <router-view/>
   </div>
 </template>
 
 <script>
-import Sidebar from './templates/Sidebar.vue';
-
 export default {
   name: 'App',
-  components: {
-    Sidebar,
-  },
 };
 </script>
 
@@ -28,4 +22,11 @@ export default {
   font-weight: normal
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
+
+#app .columns
+  display: flex
+
+.img-responsive
+  max-height: 100%
+  max-width: 100%
 </style>
