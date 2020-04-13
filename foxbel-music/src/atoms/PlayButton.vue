@@ -1,5 +1,5 @@
 <template>
-  <div class="container-play">
+  <div class="container-play" @click="clickPlay">
     <span
       class="btn-play"
       :style="{ width: buttonWidth, height: buttonHeight }"
@@ -11,6 +11,11 @@
 export default {
   name: 'PlayButton',
   props: ['width', 'height'],
+  methods: {
+    clickPlay() {
+      this.$emit('emitClick');
+    },
+  },
   computed: {
     buttonWidth() {
       return `${this.width}px`;

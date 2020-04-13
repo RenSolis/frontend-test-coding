@@ -16,7 +16,7 @@ import Sidebar from '../organisms/Sidebar.vue';
 import ArtistSection from '../organisms/ArtistSection.vue';
 
 export default {
-  name: 'ArtistTemplate',
+  name: 'AlbumTemplate',
   props: {
     songs: Array,
   },

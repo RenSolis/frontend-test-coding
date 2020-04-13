@@ -12,7 +12,7 @@ import { mapState, mapActions } from 'vuex';
 import ArtistTemplate from '../templates/ArtistTemplate.vue';
 
 export default {
-  name: 'Artist',
+  name: 'Album',
   components: {
     ArtistTemplate,
   },

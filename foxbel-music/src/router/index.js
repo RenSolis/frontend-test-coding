@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../pages/Home.vue';
 import Artist from '../pages/Artist.vue';
+import Album from '../pages/Album.vue';
 import Search from '../pages/Search.vue';
 
 Vue.use(VueRouter);
@@ -19,9 +20,14 @@ const routes = [
     props: true,
   },
   {
-    path: '/artists',
+    path: '/artists/:artist',
     name: 'Artist',
     component: Artist,
+  },
+  {
+    path: 'albums/:artist/:album',
+    name: 'Album',
+    component: Album,
   },
 ];
 

@@ -33,9 +33,6 @@ export default {
     await this.getSongs(this.word);
     await this.getArtists(this.word);
     await this.getAlbums(this.word);
-    console.log('songs', this.songs);
-    console.log('artists', this.artists);
-    console.log('albums', this.albums);
   },
 };
 </script>
