@@ -81,7 +81,6 @@ export default {
       url: `${ROOT_LAST_FM}?method=artist.getinfo&artist=${artistName}&api_key=${API_KEY}&format=json`,
     });
     this.artist = response.data.artist;
-    console.log(this.artist);
   },
 };
 </script>

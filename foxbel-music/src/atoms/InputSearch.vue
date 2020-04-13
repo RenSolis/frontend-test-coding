@@ -1,10 +1,24 @@
 <template>
-  <input type="text" placeholder="Buscar" />
+  <input
+    type="text"
+    placeholder="Buscar"
+    @keyup.enter="enterSearchInput"
+    @input="changeValue"
+  />
 </template>
 
 <script>
 export default {
   name: 'InputSearch',
+  methods: {
+    changeValue(event) {
+      const { value } = event.target;
+      this.$emit('write', value);
+    },
+    enterSearchInput() {
+      this.$emit('search');
+    },
+  },
 };
 </script>
 

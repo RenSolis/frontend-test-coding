@@ -11,10 +11,10 @@
     </div>
 
     <TitleSong>
-      {{ song.name }}
+      {{ object.name }}
     </TitleSong>
     <ArtistName>
-      {{ artist.name }}
+      {{ artistName }}
     </ArtistName>
   </div>
 </template>
@@ -27,7 +27,7 @@ import ArtistName from '../atoms/ArtistName.vue';
 
 export default {
   name: 'SongCard',
-  props: ['song'],
+  props: ['object', 'type'],
   components: {
     OptionsButton,
     PlayButton,
@@ -36,10 +36,11 @@ export default {
   },
   computed: {
     backgroundCard() {
-      return `url(${this.song.image[0]['#text']})`;
+      return `url(${this.object.image[2]['#text']})`;
     },
-    artist() {
-      return this.song.artist;
+    artistName() {
+      if (this.type === 'artist') return this.object.name;
+      return this.object.artist;
     },
   },
 };

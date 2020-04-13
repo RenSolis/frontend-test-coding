@@ -1,5 +1,5 @@
 <template>
-  <button class="btn-search">
+  <button class="btn-search" @click="searchWord">
     <slot>
       <i class="fa fa-search"></i>
     </slot>
@@ -9,6 +9,11 @@
 <script>
 export default {
   name: 'ButtonSearch',
+  methods: {
+    searchWord() {
+      this.$emit('search');
+    },
+  },
 };
 </script>
 
