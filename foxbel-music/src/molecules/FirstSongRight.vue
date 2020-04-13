@@ -1,19 +1,33 @@
 <template>
   <div class="info-song">
     <div>
-      <div class="artist-image" v-if="artist.image" :style="{ background: artistImage }"></div>
+      <ArtistImageHome
+        v-if="artist.image"
+        :image="artist.image[1]"
+      />
 
-      <h1 class="song-name">{{ artist.name }} {{ song.name }}</h1>
+      <NameArtistSong
+        v-if="artist && song"
+        :artistName="artist.name"
+        :songName="song.name"
+      />
+
       <p class="the-best">
         {{ messageBest }}
-        <span class="listeners" v-if="artist.stats">{{ artist.stats.listeners }} seguidores</span>
+        <FollowersCount
+          v-if="artist.stats"
+          :followers="artist.stats.listeners"
+        />
       </p>
-      <p class="summary" v-if="artist.bio" v-html="summary"></p>
+      <ArtistSummary
+        v-if="artist.bio"
+        :artistSummary="summary"
+      />
     </div>
 
     <div class="bottom">
-      <button class="play">Reproducir</button>
-      <button class="follow">Seguir</button>
+      <ButtonPlayCurrent />
+      <ButtonFollow />
       <OptionsButton
         :inSong="false"
       />
@@ -24,6 +38,12 @@
 <script>
 import * as axios from 'axios';
 
+import ArtistImageHome from '../atoms/ArtistImageHome.vue';
+import NameArtistSong from '../atoms/NameArtistSong.vue';
+import FollowersCount from '../atoms/FollowersCount.vue';
+import ArtistSummary from '../atoms/ArtistSummary.vue';
+import ButtonPlayCurrent from '../atoms/ButtonPlayCurrent.vue';
+import ButtonFollow from '../atoms/ButtonFollow.vue';
 import OptionsButton from '../atoms/OptionsButton.vue';
 
 export default {
@@ -31,6 +51,12 @@ export default {
   props: ['song'],
   components: {
     OptionsButton,
+    ArtistImageHome,
+    FollowersCount,
+    ArtistSummary,
+    ButtonPlayCurrent,
+    ButtonFollow,
+    NameArtistSong,
   },
   data() {
     return {
@@ -40,13 +66,6 @@ export default {
   computed: {
     messageBest() {
       return `Lo mejor de ${this.artist.name}`;
-    },
-    artistImage() {
-      return `
-        linear-gradient(0deg, rgba(167, 0, 0, 0.7),
-        rgba(167, 0, 0, 0.7)),
-        url(${this.artist.image[1]['#text']}
-      `;
     },
     summary() {
       return `${this.artist.bio.summary.substring(0, 300)}...`;
@@ -76,57 +95,10 @@ export default {
   display: flex
   flex-direction: column
   justify-content: space-between
-.artist-image
-  opacity: 0.5
-  width: 100%
-  height: 100%
-  position: absolute
-  top: 0px
-  left: 0px
-  z-index: -1
-  background-repeat: no-repeat !important
-  background-size: cover !important
-.song-name
-  font-size: 22px
-  line-height: 27px
-  font-weight: 600
-  color: #fff
 .the-best
   font-size: 14px
   line-height: 17px
   color: #fff
-.listeners
-  color: #662323
-  font-size: 10px
-  line-height: 12px
-  margin-left: 16px
-.summary
-  font-size: 12px
-  line-height: 20px
-  color: #fff
-  margin-top: 20px
-.play
-  background: #E86060
-  mix-blend-mode: normal
-  border-radius: 100px
-  padding: 7px 22px
-  border: none
-  color: #fff
-  font-size: 14px
-  line-height: 17px
-  &:hover
-    cursor: pointer
-.follow
-  border: 1px solid #EB5757
-  border-radius: 100px
-  padding: 7px 36px
-  background: transparent
-  font-size: 14px
-  line-height: 17px
-  color: #EB5757
-  margin-left: 20px
-  &:hover
-    cursor: pointer
 .bottom
   position: relative
   display: flex
