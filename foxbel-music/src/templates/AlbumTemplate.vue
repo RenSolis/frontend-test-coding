@@ -1,9 +1,9 @@
 <template>
-  <div class="home-template columns">
+  <div class="album-template columns">
     <Sidebar />
     <div class="container">
       <Navbar />
-      <SongsSection
+      <AlbumSection
         :songs="songs"
       />
     </div>
@@ -13,15 +13,17 @@
 <script>
 import Navbar from '../organisms/Navbar.vue';
 import Sidebar from '../organisms/Sidebar.vue';
-import SongsSection from '../organisms/SongsSection.vue';
+import AlbumSection from '../organisms/AlbumSection.vue';
 
 export default {
-  name: 'HomeTemplate',
-  props: ['songs'],
+  name: 'AlbumTemplate',
+  props: {
+    songs: Array,
+  },
   components: {
-    Sidebar,
     Navbar,
-    SongsSection,
+    Sidebar,
+    AlbumSection,
   },
 };
 </script>

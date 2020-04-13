@@ -1,7 +1,7 @@
 <template>
   <div>
     <TitleContainer
-      title="Recientes"
+      title="Álbums"
     />
 
     <div class="song-container">
@@ -19,7 +19,7 @@ import TitleContainer from '../molecules/TitleContainer.vue';
 import SongCard from '../molecules/SongCard.vue';
 
 export default {
-  name: 'SongsSection',
+  name: 'AlbumSection',
   props: ['songs'],
   components: {
     TitleContainer,

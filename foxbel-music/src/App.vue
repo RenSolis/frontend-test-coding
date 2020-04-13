@@ -29,4 +29,15 @@ export default {
 .img-responsive
   max-height: 100%
   max-width: 100%
+
+.container
+  padding: 30px 56px
+  width: 100%
+  height: 100%
+
+.song-container
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr))
+  grid-column-gap: 22px
+  grid-row-gap: 25px
 </style>
