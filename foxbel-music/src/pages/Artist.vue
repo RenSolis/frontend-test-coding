@@ -1,6 +1,6 @@
 <template>
   <div class="album">
-    <AlbumTemplate
+    <ArtistTemplate
       :songs="songs"
     />
   </div>
@@ -9,12 +9,12 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 
-import AlbumTemplate from '../templates/AlbumTemplate.vue';
+import ArtistTemplate from '../templates/ArtistTemplate.vue';
 
 export default {
   name: 'Album',
   components: {
-    AlbumTemplate,
+    ArtistTemplate,
   },
   computed: {
     ...mapState({

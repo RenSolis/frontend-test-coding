@@ -3,6 +3,7 @@
     <Sidebar />
     <div class="container">
       <Navbar />
+      <FirstSong />
       <SongsSection
         :songs="songs"
       />
@@ -13,6 +14,7 @@
 <script>
 import Navbar from '../organisms/Navbar.vue';
 import Sidebar from '../organisms/Sidebar.vue';
+import FirstSong from '../organisms/FirstSong.vue';
 import SongsSection from '../organisms/SongsSection.vue';
 
 export default {
@@ -21,6 +23,7 @@ export default {
   components: {
     Sidebar,
     Navbar,
+    FirstSong,
     SongsSection,
   },
 };

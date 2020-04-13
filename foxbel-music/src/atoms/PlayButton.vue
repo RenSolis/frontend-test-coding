@@ -1,12 +1,24 @@
 <template>
   <div class="container-play">
-    <span class="btn-play"></span>
+    <span
+      class="btn-play"
+      :style="{ width: buttonWidth, height: buttonHeight }"
+    ></span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'PlayButton',
+  props: ['width', 'height'],
+  computed: {
+    buttonWidth() {
+      return `${this.width}px`;
+    },
+    buttonHeight() {
+      return `${this.height}px`;
+    },
+  },
 };
 </script>
 
@@ -20,7 +32,7 @@ export default {
 .btn-play
   background-color: #fff
   clip-path: polygon(0 0, 0% 100%, 100% 50%)
-  width: 32px
-  height: 36px
   display: block
+  &:hover
+    cursor: pointer
 </style>

@@ -1,8 +1,13 @@
 <template>
   <div>
     <div class="card-background" :style="{ backgroundImage: backgroundCard }">
-      <OptionsButton />
-      <PlayButton />
+      <OptionsButton
+        :inSong="true"
+      />
+      <PlayButton
+        :width="32"
+        :height="36"
+      />
     </div>
 
     <TitleSong>

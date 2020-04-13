@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../pages/Home.vue';
-import Album from '../pages/Album.vue';
+import Artist from '../pages/Artist.vue';
 
 Vue.use(VueRouter);
 
@@ -12,9 +12,9 @@ const routes = [
     component: Home,
   },
   {
-    path: '/albums',
-    name: 'Album',
-    component: Album,
+    path: '/artists',
+    name: 'Artist',
+    component: Artist,
   },
 ];
 

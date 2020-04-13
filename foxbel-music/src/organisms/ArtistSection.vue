@@ -19,7 +19,7 @@ import TitleContainer from '../molecules/TitleContainer.vue';
 import SongCard from '../molecules/SongCard.vue';
 
 export default {
-  name: 'AlbumSection',
+  name: 'ArtistSection',
   props: ['songs'],
   components: {
     TitleContainer,

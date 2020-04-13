@@ -26,10 +26,13 @@ export default new Vuex.Store({
         url: `${ROOT_LAST_FM}?method=chart.gettoptracks&api_key=${API_KEY}&format=json&limit=${limit}`,
       });
       const songs = response.data.tracks.track;
-      console.log(songs);
+      console.log(songs); // BORRAR
       commit('getTopSongs', songs);
     },
   },
   getters: {
+    getFirstSong(state) {
+      return state.songs[0];
+    },
   },
 });

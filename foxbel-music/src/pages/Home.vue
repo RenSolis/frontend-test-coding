@@ -26,6 +26,8 @@ export default {
       getTopSongsAction: 'getTopSongsAction',
     }),
   },
-  created() { this.getTopSongsAction(); },
+  async created() {
+    await this.getTopSongsAction();
+  },
 };
 </script>

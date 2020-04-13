@@ -3,7 +3,7 @@
     <Sidebar />
     <div class="container">
       <Navbar />
-      <AlbumSection
+      <ArtistSection
         :songs="songs"
       />
     </div>
@@ -13,7 +13,7 @@
 <script>
 import Navbar from '../organisms/Navbar.vue';
 import Sidebar from '../organisms/Sidebar.vue';
-import AlbumSection from '../organisms/AlbumSection.vue';
+import ArtistSection from '../organisms/ArtistSection.vue';
 
 export default {
   name: 'AlbumTemplate',
@@ -23,7 +23,7 @@ export default {
   components: {
     Navbar,
     Sidebar,
-    AlbumSection,
+    ArtistSection,
   },
 };
 </script>
