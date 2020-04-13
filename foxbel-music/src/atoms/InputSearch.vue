@@ -30,4 +30,5 @@ input
   border: 1px solid #828282
   border-radius: 100px
   padding: 0 30px 0 15px
+  outline: none
 </style>

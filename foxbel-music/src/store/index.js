@@ -25,6 +25,9 @@ export default new Vuex.Store({
     getAlbums(state, albums) {
       state.albums = albums;
     },
+    getAlbumsOfArtist(state, albums) {
+      state.albums = albums;
+    },
   },
   actions: {
     async getTopSongsAction({ commit }) {
@@ -58,6 +61,15 @@ export default new Vuex.Store({
       });
       const { album: albums } = response.data.results.albummatches;
       commit('getAlbums', albums);
+    },
+    async getArtistAlbums({ commit }, artistId) {
+      const response = await axios({
+        method: 'get',
+        url: `${ROOT_LAST_FM}?method=artist.gettopalbums&mbid=${artistId}&api_key=${API_KEY}&format=json`,
+      });
+      const { album } = response.data.topalbums;
+      console.log(album);
+      commit('getAlbumsOfArtist', album);
     },
   },
   getters: {

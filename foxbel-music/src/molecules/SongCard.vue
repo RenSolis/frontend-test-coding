@@ -29,7 +29,7 @@ import ArtistName from '../atoms/ArtistName.vue';
 
 export default {
   name: 'SongCard',
-  props: ['object', 'type'],
+  props: ['object', 'type', 'searched'],
   components: {
     OptionsButton,
     PlayButton,
@@ -48,6 +48,7 @@ export default {
       return `url(${this.object.image[2]['#text']})`;
     },
     artistName() {
+      if (this.searched === false) return this.object.artist.name;
       if (this.type === 'artist') return this.object.name;
       return this.object.artist;
     },

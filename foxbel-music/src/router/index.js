@@ -23,11 +23,13 @@ const routes = [
     path: '/artists/:artist',
     name: 'Artist',
     component: Artist,
+    props: true,
   },
   {
     path: 'albums/:artist/:album',
     name: 'Album',
     component: Album,
+    props: true,
   },
 ];
 

@@ -1,6 +1,7 @@
 <template>
   <div class="album">
     <ArtistTemplate
+      :artist="artistSearched"
       :songs="songs"
     />
   </div>
@@ -13,19 +14,21 @@ import ArtistTemplate from '../templates/ArtistTemplate.vue';
 
 export default {
   name: 'Artist',
+  props: ['artist'],
   components: {
     ArtistTemplate,
   },
   computed: {
     ...mapState({
+      artistSearched: 'artist',
       songs: 'songs',
     }),
   },
   methods: {
-    ...mapActions({
-      getTopSongsAction: 'getTopSongsAction',
-    }),
+    ...mapActions(['getArtistAlbums']),
   },
-  created() { this.getTopSongsAction(); },
+  async created() {
+    await this.getArtistAlbums(this.artist);
+  },
 };
 </script>

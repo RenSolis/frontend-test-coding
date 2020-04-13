@@ -9,6 +9,7 @@
         :key="index"
         :object="song"
         type="song"
+        :searched="true"
       />
     </div>
 
@@ -21,6 +22,7 @@
         :key="index"
         :object="artist"
         type="artist"
+        :searched="true"
       />
     </div>
 
@@ -33,6 +35,7 @@
         :key="index"
         :object="album"
         type="album"
+        :searched="true"
       />
     </div>
   </div>

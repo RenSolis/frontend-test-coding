@@ -8,7 +8,9 @@
       <SongCard
         v-for="(song, index) in songs"
         :key="index"
-        :song="song"
+        :object="song"
+        type="song"
+        :searched="false"
       />
     </div>
   </div>
