@@ -2,15 +2,16 @@
   <div>
     <TitleContainer
       title="Álbums"
+      textColor="#662323"
     />
 
     <div class="song-container">
       <SongCard
-        v-for="(song, index) in songs"
+        v-for="(album, index) in albums"
         :key="index"
-        :object="song"
-        type="song"
-        :searched="true"
+        :object="album"
+        type="album"
+        :searched="false"
       />
     </div>
   </div>
@@ -22,7 +23,7 @@ import SongCard from '../molecules/SongCard.vue';
 
 export default {
   name: 'ArtistSection',
-  props: ['songs'],
+  props: ['albums'],
   components: {
     TitleContainer,
     SongCard,

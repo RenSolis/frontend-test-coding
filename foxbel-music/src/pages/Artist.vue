@@ -2,7 +2,7 @@
   <div class="album">
     <ArtistTemplate
       :artist="artistSearched"
-      :songs="songs"
+      :albums="albums"
     />
   </div>
 </template>
@@ -21,13 +21,14 @@ export default {
   computed: {
     ...mapState({
       artistSearched: 'artist',
-      songs: 'songs',
+      albums: 'albums',
     }),
   },
   methods: {
-    ...mapActions(['getArtistAlbums']),
+    ...mapActions(['getArtistAlbums', 'getArtistAction']),
   },
   async created() {
+    await this.getArtistAction(this.artist);
     await this.getArtistAlbums(this.artist);
   },
 };

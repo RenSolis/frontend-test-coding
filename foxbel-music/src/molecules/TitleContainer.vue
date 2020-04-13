@@ -1,6 +1,6 @@
 <template>
   <div class="title-container">
-    <TitleSection>{{ title }}</TitleSection>
+    <TitleSection :textColor="textColor">{{ title }}</TitleSection>
   </div>
 </template>
 
@@ -11,6 +11,7 @@ export default {
   name: 'TitleContainer',
   props: {
     title: String,
+    textColor: String,
   },
   components: {
     TitleSection,
