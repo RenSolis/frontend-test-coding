@@ -3,8 +3,15 @@
     <Sidebar />
     <div class="container">
       <Navbar />
-      <ArtistSection
+      <PageDetail
+        v-if="album"
+        :object="album"
         :songs="songs"
+        type="album"
+      />
+      <AlbumSection
+        :songs="songs"
+        :album="album"
       />
     </div>
   </div>
@@ -13,17 +20,20 @@
 <script>
 import Navbar from '../organisms/Navbar.vue';
 import Sidebar from '../organisms/Sidebar.vue';
-import ArtistSection from '../organisms/ArtistSection.vue';
+import AlbumSection from '../organisms/AlbumSection.vue';
+import PageDetail from '../organisms/PageDetail.vue';
 
 export default {
   name: 'AlbumTemplate',
   props: {
     songs: Array,
+    album: Object,
   },
   components: {
     Navbar,
     Sidebar,
-    ArtistSection,
+    PageDetail,
+    AlbumSection,
   },
 };
 </script>

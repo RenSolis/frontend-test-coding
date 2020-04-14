@@ -4,9 +4,9 @@
       <TitlePage>
         {{ artist.name }}
       </TitlePage>
-      <AlbumsCount
-        :count="count"
-      />
+      <Counter>
+        {{ count }} Albums
+      </Counter>
       <div class="icons-display">
         <ShareIcon />
         <FollowIcon />
@@ -22,17 +22,17 @@
 
 <script>
 import TitlePage from '../atoms/TitlePage.vue';
-import AlbumsCount from '../atoms/AlbumsCount.vue';
+import Counter from '../atoms/Counter.vue';
 import ShareIcon from '../atoms/ShareIcon.vue';
 import FollowIcon from '../atoms/FollowIcon.vue';
 import ButtonPlayCurrent from '../atoms/ButtonPlayCurrent.vue';
 import ButtonFollow from '../atoms/ButtonFollow.vue';
 
 export default {
-  name: 'PageRight',
+  name: 'PageRightArtist',
   props: ['artist', 'count'],
   components: {
-    AlbumsCount,
+    Counter,
     TitlePage,
     ShareIcon,
     FollowIcon,

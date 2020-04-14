@@ -15,6 +15,7 @@ export default new Vuex.Store({
     artists: [],
     albums: [],
     artist: undefined,
+    album: undefined,
   },
   mutations: {
     getSongs(state, songs) {
@@ -31,6 +32,9 @@ export default new Vuex.Store({
     },
     getArtist(state, artist) {
       state.artist = artist;
+    },
+    getAlbum(state, album) {
+      state.album = album;
     },
   },
   actions: {
@@ -81,6 +85,15 @@ export default new Vuex.Store({
       });
       const { artist } = response.data;
       commit('getArtist', artist);
+    },
+    async getAlbumAction({ commit }, params) {
+      const response = await axios({
+        method: 'get',
+        url: `${ROOT_LAST_FM}?method=album.getinfo&api_key=${API_KEY}&artist=${params.artist}&album=${params.album}&format=json`,
+      });
+      const { album } = response.data;
+      commit('getAlbum', album);
+      commit('getSongs', album.tracks.track);
     },
   },
   getters: {

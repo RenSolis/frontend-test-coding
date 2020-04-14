@@ -1,7 +1,8 @@
 <template>
   <div class="album">
-    <ArtistTemplate
+    <AlbumTemplate
       :songs="songs"
+      :album="albumSearched"
     />
   </div>
 </template>
@@ -9,23 +10,29 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 
-import ArtistTemplate from '../templates/ArtistTemplate.vue';
+import AlbumTemplate from '../templates/AlbumTemplate.vue';
 
 export default {
   name: 'Album',
+  props: ['artist', 'album'],
   components: {
-    ArtistTemplate,
+    AlbumTemplate,
   },
   computed: {
     ...mapState({
+      albumSearched: 'album',
       songs: 'songs',
     }),
   },
   methods: {
     ...mapActions({
-      getTopSongsAction: 'getTopSongsAction',
+      getAlbumAction: 'getAlbumAction',
     }),
   },
-  created() { this.getTopSongsAction(); },
+  async created() {
+    await this.getAlbumAction({ artist: this.artist, album: this.album });
+    console.log(this.albumSearched);
+    console.log(this.songs);
+  },
 };
 </script>

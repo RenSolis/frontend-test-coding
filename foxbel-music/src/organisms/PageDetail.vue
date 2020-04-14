@@ -5,9 +5,15 @@
       :image="image"
     />
     <div v-if="type == 'artist'" class="right-display">
-      <PageRight
+      <PageRightArtist
         :artist="object"
         :count="albums.length"
+      />
+    </div>
+    <div v-else class="right-display">
+      <PageRightAlbum
+        :album="object"
+        :count="songs.length"
       />
     </div>
   </div>
@@ -15,14 +21,16 @@
 
 <script>
 import PageLeft from '../molecules/PageLeft.vue';
-import PageRight from '../molecules/PageRight.vue';
+import PageRightArtist from '../molecules/PageRightArtist.vue';
+import PageRightAlbum from '../molecules/PageRightAlbum.vue';
 
 export default {
   name: 'PageDetail',
-  props: ['object', 'type', 'albums'],
+  props: ['object', 'type', 'albums', 'songs'],
   components: {
     PageLeft,
-    PageRight,
+    PageRightArtist,
+    PageRightAlbum,
   },
   computed: {
     image() {

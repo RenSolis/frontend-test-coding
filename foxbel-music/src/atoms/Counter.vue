@@ -1,13 +1,14 @@
 <template>
   <div>
-    <p class="count">{{ count }} Albums</p>
+    <p class="count">
+      <slot></slot>
+    </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'AlbumsCount',
-  props: ['count'],
+  name: 'Counter',
 };
 </script>
 

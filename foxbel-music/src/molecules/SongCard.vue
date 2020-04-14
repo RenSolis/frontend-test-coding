@@ -39,7 +39,9 @@ export default {
   methods: {
     redirectToPage() {
       if (this.type === 'artist') return this.$router.push({ name: 'Artist', params: { artist: this.object.mbid } });
-      if (this.type === 'album') return this.$router.push({ name: 'Album', params: { artist: this.object.artist, album: this.object.name } });
+      if (this.type === 'album') {
+        return this.$router.push({ name: 'Album', params: { artist: this.artistName, album: this.object.name } });
+      }
       return this.$router.push({ name: 'Home' });
     },
   },
