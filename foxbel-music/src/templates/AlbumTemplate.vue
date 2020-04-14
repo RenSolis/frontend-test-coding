@@ -9,7 +9,7 @@
         :songs="songs"
         type="album"
       />
-      <AlbumSection
+      <AlbumTable
         :songs="songs"
         :album="album"
       />
@@ -20,7 +20,7 @@
 <script>
 import Navbar from '../organisms/Navbar.vue';
 import Sidebar from '../organisms/Sidebar.vue';
-import AlbumSection from '../organisms/AlbumSection.vue';
+import AlbumTable from '../organisms/AlbumTable.vue';
 import PageDetail from '../organisms/PageDetail.vue';
 
 export default {
@@ -33,7 +33,7 @@ export default {
     Navbar,
     Sidebar,
     PageDetail,
-    AlbumSection,
+    AlbumTable,
   },
 };
 </script>

@@ -49,6 +49,13 @@ export default {
     ArtistAlbum,
     AlbumYear,
   },
+  methods: {
+    twoNumbers(number) {
+      const stringNumber = String(number);
+      if (stringNumber.split('').length > 1) return number;
+      return `${number}0`;
+    },
+  },
   computed: {
     albumYear() {
       return this.album.wiki.published.substring(7, 11);
@@ -57,8 +64,8 @@ export default {
       let total = 0;
       this.album.tracks.track.forEach((song) => { total += Number(song.duration); });
       const minutes = Math.floor(total / 60);
-      const seconds = Math.round(Number(String(total / 60).split('.')[1].substring(0, 2)));
-      return `${minutes}:${seconds}`;
+      const seconds = total % 60;
+      return `${minutes}:${this.twoNumbers(seconds)}`;
     },
     firstTag() {
       return this.album.tags.tag[0].name;
