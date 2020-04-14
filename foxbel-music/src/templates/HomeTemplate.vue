@@ -5,6 +5,7 @@
       <Navbar />
       <FirstSong />
       <SongsSection
+        v-if="songs"
         :songs="songs"
       />
     </div>

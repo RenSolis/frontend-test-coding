@@ -42,11 +42,12 @@ export default {
       if (this.type === 'album') {
         return this.$router.push({ name: 'Album', params: { artist: this.artistName, album: this.object.name } });
       }
-      return this.$router.push({ name: 'Home' });
+      return this.$router.push({ name: 'Play' });
     },
   },
   computed: {
     backgroundCard() {
+      if (this.object.image === undefined || this.object.image.length === 0) return '';
       return `url(${this.object.image[2]['#text']})`;
     },
     artistName() {

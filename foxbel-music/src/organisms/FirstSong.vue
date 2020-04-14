@@ -1,7 +1,7 @@
 <template>
   <div class="first-song">
     <FirstSongLeft
-      v-if="song"
+      v-if="song && song.image"
       :song="song"
     />
     <FirstSongRight

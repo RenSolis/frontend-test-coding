@@ -1,7 +1,7 @@
 <template>
   <div class="container-left">
     <ImageLeftFirst
-      v-if="song"
+      v-if="song.image.length > 0"
       :image="song.image[0]"
     />
     <PlayButton
