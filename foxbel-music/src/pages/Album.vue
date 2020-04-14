@@ -31,8 +31,6 @@ export default {
   },
   async created() {
     await this.getAlbumAction({ artist: this.artist, album: this.album });
-    console.log(this.albumSearched);
-    console.log(this.songs);
   },
 };
 </script>
